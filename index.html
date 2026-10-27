@@ -16164,6 +16164,25 @@ body.personal-workspace #personalWorkspaceBtn.active{background:#fff!important;c
 @media (max-width:760px){#view-pessoal .personal-summary-grid{grid-template-columns:1fr!important}}
 
 </style>
+<style id="calendario-mesa">/* Calendário de mesa */
+.office-memo-hero .uniform-hero-tools{display:grid!important;grid-template-columns:auto auto!important;grid-auto-rows:auto!important;gap:8px 10px!important;align-items:center!important;justify-items:center!important;max-width:none!important}
+.office-memo-hero .uniform-hero-tools .uniform-today-chip{grid-row:span 2;order:0!important;flex:none!important;position:relative!important;display:flex!important;flex-direction:column!important;width:112px!important;min-width:0!important;height:auto!important;padding:0!important;border:0!important;border-radius:6px!important;overflow:visible!important;background:#fffdf6!important;box-shadow:0 6px 0 -3px #e9e1cf,0 10px 18px rgba(0,0,0,.28)!important;transform:rotate(-2deg)}
+.office-memo-hero .uniform-today-chip>svg,.office-memo-hero .uniform-today-chip .uniform-date-copy{display:none!important}
+.ofc-cal-top{position:relative;display:block;padding:9px 6px 6px;border-radius:6px 6px 0 0;background:var(--ofc-red);text-align:center}
+.ofc-cal-top::before,.ofc-cal-top::after{content:"";position:absolute;top:-5px;width:8px;height:12px;border-radius:4px;background:#d7dbe3;box-shadow:inset 0 -2px 0 rgba(0,0,0,.18)}
+.ofc-cal-top::before{left:24px}.ofc-cal-top::after{right:24px}
+.ofc-cal-wd{color:#fff;font:800 9.5px/1 ui-monospace,Menlo,monospace;letter-spacing:1.6px}
+.ofc-cal-body{display:flex;flex-direction:column;align-items:center;padding:4px 6px 9px;background:repeating-linear-gradient(0deg,rgba(40,55,76,.05) 0 1px,transparent 1px 12px)}
+.ofc-cal-day{color:var(--ofc-ink);font:900 38px/1 Inter,system-ui,sans-serif;letter-spacing:-1.5px}
+.ofc-cal-mon{margin-top:3px;color:var(--ofc-muted);font:800 9px/1 ui-monospace,Menlo,monospace;letter-spacing:1px}
+.office-memo-hero .uniform-hero-tools .uniform-circle{grid-column:2}
+.office-memo-hero .uniform-hero-tools .ofc-hero-action{grid-column:1/-1;width:100%}
+@media (max-width:760px){.office-memo-hero .uniform-hero-tools{grid-template-columns:auto auto auto!important;justify-content:flex-start!important} .office-memo-hero .uniform-hero-tools .uniform-today-chip{grid-row:auto} .office-memo-hero .uniform-hero-tools .uniform-circle{grid-column:auto}}
+#view-hoje .office-memo-hero .uniform-hero-tools{display:grid!important;grid-template-columns:auto auto!important;gap:8px 10px!important;align-items:center!important;justify-items:center!important;max-width:none!important;flex-direction:initial!important}
+#view-hoje .office-memo-hero .uniform-hero-tools .uniform-today-chip{grid-row:span 2;width:112px!important;flex:none!important;min-width:0!important;order:0!important}
+@media (max-width:760px){#view-hoje .office-memo-hero .uniform-hero-tools{grid-template-columns:auto auto auto!important;justify-content:flex-start!important} #view-hoje .office-memo-hero .uniform-hero-tools .uniform-today-chip{grid-row:auto}}
+.office-memo-hero .uniform-today-chip{align-items:stretch!important;justify-content:flex-start!important;gap:0!important}.office-memo-hero .ofc-cal-top,.office-memo-hero .ofc-cal-body{width:100%!important;box-sizing:border-box!important}
+</style>
 </head>
 <body class="locked">
 
@@ -19783,6 +19802,14 @@ function updateBannerDates(){
   const memo=now.toLocaleDateString("pt-BR",{weekday:"short"}).replace(".","").toUpperCase()+", "+now.toLocaleDateString("pt-BR",{day:"2-digit",month:"2-digit"});
   document.querySelectorAll(".memo-date-live").forEach(el=>el.textContent=memo);
   document.querySelectorAll(".lilac-date-wd").forEach(el=>el.textContent=now.toLocaleDateString("pt-BR",{weekday:"long"}).toUpperCase());
+  const mon=now.toLocaleDateString("pt-BR",{month:"short"}).replace(".","").toUpperCase();
+  const wdl=now.toLocaleDateString("pt-BR",{weekday:"long"}).split("-")[0].toUpperCase();
+  document.querySelectorAll(".office-memo-hero .uniform-today-chip").forEach(chip=>{
+    if(!chip.querySelector(".ofc-cal-day")) chip.insertAdjacentHTML("beforeend",'<span class="ofc-cal-top"><b class="ofc-cal-wd"></b></span><span class="ofc-cal-body"><b class="ofc-cal-day"></b><small class="ofc-cal-mon"></small></span>');
+    chip.querySelector(".ofc-cal-wd").textContent=wdl;
+    chip.querySelector(".ofc-cal-day").textContent=now.getDate();
+    chip.querySelector(".ofc-cal-mon").textContent=mon+" · "+now.getFullYear();
+  });
   const h=now.getHours();
   const g=document.getElementById("homeHeroGreeting");
   if(g) g.textContent=(h<12?"Bom dia":h<18?"Boa tarde":"Boa noite")+", Julia!";
