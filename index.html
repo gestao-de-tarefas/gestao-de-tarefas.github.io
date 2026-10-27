@@ -17569,7 +17569,7 @@ const SESSION_KEY="painel_login_ok_v1";
 const SUPABASE_URL="https://brohmonslylyaxeuenue.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_LyFNpYDt_QWtMhXp7FG7mQ_wiHQpM3y";
 const PANEL_AUTH_EMAIL="julia.souza@painel.app";
-const PUBLISHED_HOST="bluemixangel-cloud.github.io";
+const PUBLISHED_HOSTS=["gestao-de-tarefas.github.io","bluemixangel-cloud.github.io"];
 
 const supabaseClient=window.supabase?.createClient(
   SUPABASE_URL,
@@ -17588,7 +17588,7 @@ let cloudReady=false;
 /* O preview que eu te envio continua seguro para testar:
    ele pode ler o banco depois do login, mas só a versão publicada
    no GitHub grava alterações automaticamente. */
-const cloudWriteEnabled=location.hostname===PUBLISHED_HOST;
+const cloudWriteEnabled=PUBLISHED_HOSTS.includes(location.hostname);
 let cloudLastSnapshot="";
 let cloudSyncBusy=false;
 
