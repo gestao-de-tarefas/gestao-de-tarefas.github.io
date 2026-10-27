@@ -16071,6 +16071,92 @@ body.personal-workspace #personalWorkspaceBtn.active{background:#fff!important;c
 #view-pessoal [class*="spirit-empty"] [class*="icon"],#view-pessoal .spirit-list [class*="empty"] span:first-child{background:linear-gradient(135deg,#b79ae0,#e3a3c4)!important;color:#fff!important}
 #view-pessoal .shelf-widget>div:last-of-type,#view-pessoal .shelf-widget [class*="shelf"]:not(h4):not(small){background:linear-gradient(180deg,#f1e8f8,#e2d4ef)!important}
 
+/* ===== Biblioteca nova ===== */
+#view-pessoal .lib2{display:flex;flex-direction:column;gap:16px}
+.lib2-top{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px}
+#view-pessoal .lib2-stats{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:12px!important;margin:0!important}
+#view-pessoal .lib2-stats>button{display:flex!important;align-items:center!important;gap:12px!important;padding:16px!important;min-height:0!important;cursor:pointer}
+#view-pessoal .lib2-stats .kindle-stat-icon{width:46px!important;height:46px!important;flex:none;display:grid!important;place-items:center!important;font-size:0!important}
+#view-pessoal .lib2-stats .kindle-stat-icon svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linejoin:round;stroke-linecap:round}
+#view-pessoal .lib2-stats strong{display:block;font-size:28px!important;line-height:1!important;color:var(--lil-ink)!important}
+#view-pessoal .lib2-stats small{display:block;margin-top:3px;color:var(--lil-muted)!important;font-size:12px!important;font-weight:800!important}
+.lib2-goal{display:flex;align-items:center;gap:16px;padding:16px 18px;background:linear-gradient(135deg,#f6ecfb,#fbeef5);border:1px solid var(--lil-line);border-radius:22px}
+#view-pessoal .lib2-goal .reading-goal-ring{width:74px!important;height:74px!important;flex:none;border-radius:50%!important;display:grid!important;place-items:center!important;background:conic-gradient(#a983cf var(--goal-pct,0deg),#fff 0)!important;position:relative}
+#view-pessoal .lib2-goal .reading-goal-ring::before{content:"";position:absolute;inset:9px;border-radius:50%;background:#fbf3fa}
+#view-pessoal .lib2-goal .reading-goal-ring span{position:relative;color:var(--lil-ink);font:700 16px Quicksand,system-ui,sans-serif}
+.lib2-goal-copy span,.lib2-tag{display:inline-block;padding:3px 9px;border-radius:999px;background:#fbeef5;color:var(--lil-rose);font-size:9.5px;font-weight:900;letter-spacing:1.6px}
+.lib2-goal-copy strong{display:block;margin:6px 0 6px;color:var(--lil-ink);font:700 18px Quicksand,system-ui,sans-serif}
+.lib2-goal-copy button,.lib2-card-head button{border:0;background:#fff;color:var(--lil-accent);font-weight:800;font-size:12px;padding:6px 12px;border-radius:999px;cursor:pointer;box-shadow:0 4px 10px rgba(138,111,192,.12)}
+.lib2-shelf{padding:22px;background:#fff;border:1px solid var(--lil-line);border-radius:24px;box-shadow:0 10px 28px rgba(138,111,192,.07)}
+.lib2-shelf-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+#view-pessoal .lib2-shelf-head h3{margin:6px 0 0!important;font-size:24px!important}
+.lib2-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.lib2-search{display:flex;align-items:center;gap:8px;width:300px;max-width:100%;height:42px;padding:0 14px;border-radius:14px;background:var(--lil-soft);border:1px solid transparent}
+.lib2-search:focus-within{border-color:#d9c6ef;background:#fff}
+.lib2-search svg{width:16px;height:16px;fill:none;stroke:var(--lil-muted);stroke-width:2;flex:none}
+.lib2-search input{flex:1;min-width:0;border:0;background:transparent;outline:0;color:var(--lil-ink);font-size:13px}
+.lib2-sort{display:flex;align-items:center;gap:8px;height:42px;padding:0 12px;border-radius:14px;background:var(--lil-soft);color:var(--lil-muted);font-size:12px;font-weight:800}
+.lib2-sort select{border:0;background:transparent;color:var(--lil-ink);font-weight:800;font-size:12.5px;outline:0}
+#view-pessoal .lib2-tabs{display:inline-flex!important;margin:16px 0 12px!important;flex-wrap:wrap}
+.lib2-genres{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-bottom:14px;margin-bottom:16px;border-bottom:1px dashed var(--lil-line)}
+#view-pessoal .lib2-genre-list{display:contents!important;background:none!important;border:0!important;padding:0!important;box-shadow:none!important}
+#view-pessoal .lib2-genre-list button,.lib2-genre-all{display:inline-flex!important;align-items:center!important;gap:7px!important;width:auto!important;height:32px!important;padding:0 12px!important;border:1px solid var(--lil-line)!important;border-radius:999px!important;background:#fff!important;color:var(--lil-ink)!important;font-size:12px!important;font-weight:700!important;cursor:pointer}
+#view-pessoal .lib2-genre-list button:hover,.lib2-genre-all:hover{background:var(--lil-soft)!important}
+#view-pessoal .lib2-genre-list button i{width:8px!important;height:8px!important;border-radius:50%!important;flex:none}
+#view-pessoal .lib2-genre-list button b{min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--lil-soft);color:var(--lil-muted);font-size:10.5px;line-height:18px;text-align:center}
+#view-pessoal .lib2-grid{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))!important;gap:18px!important}
+#view-pessoal .lib2-grid .personal-library-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:220px;text-align:center}
+#view-pessoal .lib2-grid .personal-library-empty strong{color:var(--lil-ink);font:700 17px Quicksand,system-ui,sans-serif}
+#view-pessoal .lib2-grid .personal-library-empty span{color:var(--lil-muted);font-size:12.5px}
+#view-pessoal .lib2-grid .personal-library-empty::before{content:"";width:54px;height:54px;border-radius:18px;margin-bottom:6px;background:linear-gradient(135deg,#b79ae0,#e3a3c4) center/26px no-repeat;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.9' stroke-linejoin='round'%3E%3Cpath d='M2 6.5C4.5 5 8 5 12 7c4-2 7.5-2 10-.5V19c-2.5-1.5-6-1.5-10 .5-4-2-7.5-2-10-.5Z'/%3E%3Cpath d='M12 7v12.5'/%3E%3C/svg%3E"),linear-gradient(135deg,#b79ae0,#e3a3c4)}
+/* Livros */
+#view-pessoal .personal-book-card{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;cursor:pointer}
+#view-pessoal .book-cover-frame{aspect-ratio:2/3;border-radius:12px!important;overflow:hidden!important;box-shadow:0 10px 22px rgba(59,47,85,.16)!important;transition:transform .15s}
+#view-pessoal .personal-book-card:hover .book-cover-frame{transform:translateY(-3px)}
+#view-pessoal .book-cover-fallback{height:100%;background:linear-gradient(160deg,#cbb6ea,#efc1d8)!important;color:#fff!important;padding:14px!important}
+#view-pessoal .book-grid-info strong{color:var(--lil-ink)!important;font-size:13px!important}
+#view-pessoal .book-grid-info small{color:var(--lil-muted)!important}
+#view-pessoal .book-status-pill{background:var(--lil-soft)!important;color:var(--lil-accent)!important;border-radius:999px!important}
+#view-pessoal .book-card-progress div{background:var(--lil-soft)!important}
+#view-pessoal .book-card-progress i,#view-pessoal .book-progress-overlay i{background:linear-gradient(90deg,#a983cf,#e3a3c4)!important}
+.lib2-bottom{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px}
+.lib2-quote,.lib2-notes{position:relative;padding:20px 22px;background:#fff;border:1px solid var(--lil-line);border-radius:24px;box-shadow:0 10px 28px rgba(138,111,192,.07);overflow:hidden}
+.lib2-quote{background:linear-gradient(135deg,#fdf4f9,#f4eefc)}
+.lib2-quote-mark{position:absolute;right:18px;top:-18px;color:#e6d3f3;font:700 140px/1 Georgia,serif;pointer-events:none}
+.lib2-card-head{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+#view-pessoal .lib2-quote blockquote{position:relative;margin:6px 0 8px!important;color:var(--lil-ink)!important;font:600 19px/1.45 Quicksand,system-ui,sans-serif!important;font-style:normal!important}
+#view-pessoal .lib2-quote small{color:var(--lil-rose)!important;font-size:12px!important;font-weight:800!important}
+#view-pessoal .lib2-notes .library-quick-note{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed var(--lil-line)}
+#view-pessoal .lib2-notes .library-note-check{width:20px;height:20px;border-radius:7px;border:1.5px solid #cbb6ea;background:#fff;color:#fff;font-size:12px}
+#view-pessoal .lib2-notes .library-note-check.checked{background:#a983cf;border-color:#a983cf}
+#view-pessoal .lib2-notes .library-quick-note span{flex:1;color:var(--lil-ink);font-size:13px}
+#view-pessoal .lib2-notes .library-quick-note.done span{color:var(--lil-muted);text-decoration:line-through}
+#view-pessoal .lib2-notes .library-note-delete{border:0;background:none;color:#c9b7e3;font-size:18px;cursor:pointer}
+#view-pessoal .library-widget-empty{padding:18px;border-radius:16px;background:var(--lil-soft);color:var(--lil-muted);font-size:12.5px;text-align:center}
+@media (max-width:1180px){.lib2-top{grid-template-columns:1fr}}
+@media (max-width:760px){#view-pessoal .lib2-stats{grid-template-columns:repeat(2,1fr)!important} .lib2-bottom{grid-template-columns:1fr} .lib2-search{width:100%} .lib2-tools{width:100%} #view-pessoal .lib2-grid{grid-template-columns:repeat(2,1fr)!important}}
+
+#view-pessoal .lib2-grid .book-cover-frame{height:auto!important;min-height:0!important;aspect-ratio:2/3!important;width:100%!important}
+#view-pessoal .lib2-grid .book-cover-image{width:100%!important;height:100%!important;object-fit:cover!important}
+#view-pessoal .lib2-grid .book-cover-fallback{display:flex!important;flex-direction:column!important;justify-content:flex-end!important;gap:6px!important;padding:16px 14px!important;text-align:left!important;color:var(--lil-ink)!important;position:relative}
+#view-pessoal .lib2-grid .book-cover-fallback::before{content:"";position:absolute;left:12px;top:0;bottom:0;width:3px;background:rgba(255,255,255,.55)}
+#view-pessoal .lib2-grid .book-cover-fallback b{color:var(--lil-ink)!important;font:700 15px/1.25 Quicksand,system-ui,sans-serif!important;padding-left:8px}
+#view-pessoal .lib2-grid .book-cover-fallback small{color:rgba(59,47,85,.7)!important;font-size:11.5px!important;font-weight:700!important;padding-left:8px}
+#view-pessoal .lib2-grid .personal-book-card:nth-child(5n+1) .book-cover-fallback{background:linear-gradient(160deg,#e9dcfa,#f6d4e6)!important}
+#view-pessoal .lib2-grid .personal-book-card:nth-child(5n+2) .book-cover-fallback{background:linear-gradient(160deg,#dbe7fb,#ead9f6)!important}
+#view-pessoal .lib2-grid .personal-book-card:nth-child(5n+3) .book-cover-fallback{background:linear-gradient(160deg,#dcf1e8,#e4e1f7)!important}
+#view-pessoal .lib2-grid .personal-book-card:nth-child(5n+4) .book-cover-fallback{background:linear-gradient(160deg,#fbe6d6,#f4d6e6)!important}
+#view-pessoal .lib2-grid .personal-book-card:nth-child(5n+5) .book-cover-fallback{background:linear-gradient(160deg,#f7dbe8,#e1d6f6)!important}
+#view-pessoal .lib2-grid .book-grid-info{padding:10px 2px 0!important}
+#view-pessoal .lib2-grid .book-card-meta{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:6px!important;margin-top:6px!important}
+#view-pessoal .lib2-grid .book-card-meta span{font-size:10.5px!important;color:var(--lil-muted)!important;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#view-pessoal .lib2-grid .book-status-pill{padding:2px 8px!important;font-weight:800!important;color:var(--lil-accent)!important;flex:none}
+#view-pessoal .lib2-grid .book-card-progress small,#view-pessoal .lib2-grid .book-pages{font-size:10.5px!important;color:var(--lil-muted)!important}
+#view-pessoal .lib2-grid .book-favorite-mark{background:#fff!important;color:var(--lil-rose)!important}
+
+#view-pessoal .lib2-genre-list button span{font-size:12px!important;font-weight:700!important;color:var(--lil-ink)!important}
+#view-pessoal .lib2-grid .book-cover-fallback{align-items:flex-start!important}
+
 </style>
 </head>
 <body class="locked">
@@ -17150,136 +17236,82 @@ body.personal-workspace #personalWorkspaceBtn.active{background:#fff!important;c
         </div>
       </header>
 
-    <div class="kindle-library-layout">
-
-      <aside class="kindle-library-genres">
-        <div class="kindle-side-heading">
-          <span>MINHA ESTANTE</span>
-          <h3>Meus gêneros</h3>
-        </div>
-        <div id="libraryGenreList" class="kindle-genre-list"></div>
-
-        <div class="kindle-side-note" aria-hidden="true">
-          <span>♡</span>
-          <strong>Livros também<br>são abraços.</strong>
-          <small>um capítulo por vez</small>
-        </div>
-      </aside>
-
-      <main class="kindle-library-main">
-        <div class="kindle-library-actions">
-          <label class="bookshelf-search kindle-library-search">
-            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
-            <input id="personalBookSearch" type="search" placeholder="Buscar livro, autor ou gênero..." oninput="renderPersonalLibrary()">
-          </label>
-          <button class="bookshelf-add kindle-add-book" type="button" onclick="openPersonalBookModal()">
-            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-            Adicionar livro
-          </button>
-        </div>
-
-        <div class="kindle-library-stats">
+    <div class="lib2">
+      <div class="lib2-top">
+        <div class="kindle-library-stats lib2-stats">
           <button type="button" onclick="setBookFilter('Quero ler',document.querySelector('[data-book-filter=&quot;Quero ler&quot;]'))">
-            <span class="kindle-stat-icon stat-stack">
-              <i></i><i></i><i></i>
-            </span>
+            <span class="kindle-stat-icon stat-stack"><i></i><i></i><i></i></span>
             <div><strong id="libraryWantCount">0</strong><small>Quero ler</small></div>
           </button>
           <button type="button" onclick="setBookFilter('Lendo',document.querySelector('[data-book-filter=&quot;Lendo&quot;]'))">
-            <span class="kindle-stat-icon stat-openbook">⌑</span>
+            <span class="kindle-stat-icon"><svg viewBox="0 0 24 24"><path d="M2 6.5C4.5 5 8 5 12 7c4-2 7.5-2 10-.5V19c-2.5-1.5-6-1.5-10 .5-4-2-7.5-2-10-.5Z"/><path d="M12 7v12.5"/></svg></span>
             <div><strong id="libraryReadingCount">0</strong><small>Lendo</small></div>
           </button>
           <button type="button" onclick="setBookFilter('Lido',document.querySelector('[data-book-filter=&quot;Lido&quot;]'))">
-            <span class="kindle-stat-icon stat-books">▤</span>
+            <span class="kindle-stat-icon"><svg viewBox="0 0 24 24"><path d="M5 4h4v16H5zM10 4h4v16h-4z"/><path d="m15 5 3.8-1 3.2 15.6-3.8 1Z"/></svg></span>
             <div><strong id="libraryReadCount">0</strong><small>Lidos</small></div>
           </button>
           <button type="button" onclick="setBookFilter('Favoritos',document.querySelector('[data-book-filter=&quot;Favoritos&quot;]'))">
-            <span class="kindle-stat-icon stat-heart">♡</span>
+            <span class="kindle-stat-icon"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7-4.35-7-10a4 4 0 0 1 7-2.3A4 4 0 0 1 19 10.5c0 5.65-7 10-7 10Z"/></svg></span>
             <div><strong id="libraryFavoriteCount">0</strong><small>Favoritos</small></div>
           </button>
         </div>
-
-        <section class="kindle-books-surface">
-          <div class="kindle-books-heading">
-            <div class="kindle-books-title">
-              <h3>Meus livros</h3>
-              <span></span>
-            </div>
-            <div class="kindle-book-controls">
-              <label class="kindle-sort">
-                <span>Ordenar por</span>
-                <select id="personalBookSort" onchange="renderPersonalLibrary()">
-                  <option value="updated">Mais recentes</option>
-                  <option value="title">Título</option>
-                  <option value="author">Autor</option>
-                  <option value="progress">Progresso</option>
-                </select>
-              </label>
-            </div>
-          </div>
-
-          <div class="personal-filter-row personal-library-filters">
-            <button class="active" data-book-filter="all" onclick="setBookFilter('all',this)">Todos</button>
-            <button data-book-filter="Quero ler" onclick="setBookFilter('Quero ler',this)">Quero ler</button>
-            <button data-book-filter="Lendo" onclick="setBookFilter('Lendo',this)">Lendo</button>
-            <button data-book-filter="Lido" onclick="setBookFilter('Lido',this)">Lidos</button>
-            <button data-book-filter="Favoritos" onclick="setBookFilter('Favoritos',this)">Favoritos</button>
-            <button data-book-filter="Pausado" onclick="setBookFilter('Pausado',this)">Pausados</button>
-          </div>
-
-          <div id="personalLibraryList" class="personal-library-grid bookshelf-grid"></div>
-        </section>
-      </main>
-
-      <aside class="kindle-library-right">
-        <section class="kindle-widget reading-goal-widget">
-          <div class="kindle-widget-head">
-            <div><span>☘</span><h3>Meta de leitura</h3></div>
-            <button type="button" onclick="editLibraryGoal()" title="Editar meta">+</button>
-          </div>
-          <div class="reading-goal-body">
-            <div class="reading-goal-copy">
-              <strong id="libraryGoalProgressText">0 de 30 livros</strong>
-              <small>meta deste ano</small>
-            </div>
-            <div class="reading-goal-ring" id="libraryGoalRing"><span id="libraryGoalPercent">0%</span></div>
+        <section class="lib2-goal reading-goal-widget">
+          <div class="reading-goal-ring" id="libraryGoalRing"><span id="libraryGoalPercent">0%</span></div>
+          <div class="lib2-goal-copy">
+            <span>META DO ANO</span>
+            <strong id="libraryGoalProgressText">0 de 30 livros</strong>
+            <button type="button" onclick="editLibraryGoal()">Editar meta</button>
           </div>
         </section>
+      </div>
 
-        <section class="kindle-widget quick-notes-widget">
-          <div class="kindle-widget-head">
-            <div><span>⌛</span><h3>Notas rápidas</h3></div>
-            <button type="button" onclick="addLibraryQuickNote()">+</button>
+      <section class="lib2-shelf">
+        <div class="lib2-shelf-head">
+          <div><span class="lib2-tag">MINHA ESTANTE</span><h3>Meus livros</h3></div>
+          <div class="lib2-tools">
+            <label class="lib2-search">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+              <input id="personalBookSearch" type="search" placeholder="Buscar livro, autor ou gênero..." oninput="renderPersonalLibrary()">
+            </label>
+            <label class="lib2-sort">
+              <span>Ordenar</span>
+              <select id="personalBookSort" onchange="renderPersonalLibrary()">
+                <option value="updated">Mais recentes</option>
+                <option value="title">Título</option>
+                <option value="author">Autor</option>
+                <option value="progress">Progresso</option>
+              </select>
+            </label>
           </div>
-          <div id="libraryQuickNotes" class="library-quick-notes"></div>
-        </section>
+        </div>
+        <div class="personal-filter-row personal-library-filters lib2-tabs">
+          <button class="active" data-book-filter="all" onclick="setBookFilter('all',this)">Todos</button>
+          <button data-book-filter="Quero ler" onclick="setBookFilter('Quero ler',this)">Quero ler</button>
+          <button data-book-filter="Lendo" onclick="setBookFilter('Lendo',this)">Lendo</button>
+          <button data-book-filter="Lido" onclick="setBookFilter('Lido',this)">Lidos</button>
+          <button data-book-filter="Favoritos" onclick="setBookFilter('Favoritos',this)">Favoritos</button>
+          <button data-book-filter="Pausado" onclick="setBookFilter('Pausado',this)">Pausados</button>
+        </div>
+        <div class="lib2-genres">
+          <button type="button" class="lib2-genre-all" onclick="const i=document.getElementById('personalBookSearch');if(i)i.value='';renderPersonalLibrary()">Todos os gêneros</button>
+          <div id="libraryGenreList" class="kindle-genre-list lib2-genre-list"></div>
+        </div>
+        <div id="personalLibraryList" class="personal-library-grid bookshelf-grid lib2-grid"></div>
+      </section>
 
-        <section class="kindle-widget quote-widget">
-          <div class="kindle-widget-head">
-            <div><span>❝</span><h3>Citação favorita</h3></div>
-            <button type="button" onclick="editLibraryQuote()">+</button>
-          </div>
+      <div class="lib2-bottom">
+        <section class="lib2-quote quote-widget">
+          <span class="lib2-quote-mark">“</span>
+          <div class="lib2-card-head"><span class="lib2-tag">CITAÇÃO FAVORITA</span><button type="button" onclick="editLibraryQuote()">Editar</button></div>
           <blockquote id="libraryFavoriteQuote">“Entre um capítulo e outro, também me encontro.”</blockquote>
           <small id="libraryFavoriteQuoteAuthor">— Minha biblioteca</small>
         </section>
-
-        <section class="kindle-widget shelf-widget">
-          <div class="kindle-widget-head">
-            <div><span>▧</span><h3>Minha estante</h3></div>
-          </div>
-          <div class="kindle-mini-shelf" aria-hidden="true">
-            <i class="shelf-book b1"></i>
-            <i class="shelf-book b2"></i>
-            <i class="shelf-book b3"></i>
-            <i class="shelf-book b4"></i>
-            <i class="shelf-book b5"></i>
-            <i class="shelf-book b6"></i>
-            <i class="shelf-vine"></i>
-          </div>
-          <p><strong id="libraryShelfTotal">0</strong> livros guardados aqui.</p>
+        <section class="lib2-notes quick-notes-widget">
+          <div class="lib2-card-head"><span class="lib2-tag">NOTAS RÁPIDAS</span><button type="button" onclick="addLibraryQuickNote()">+ Nota</button></div>
+          <div id="libraryQuickNotes" class="library-quick-notes"></div>
         </section>
-      </aside>
-
+      </div>
     </div>
   </section>
 </section>
