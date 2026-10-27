@@ -16157,6 +16157,12 @@ body.personal-workspace #personalWorkspaceBtn.active{background:#fff!important;c
 #view-pessoal .lib2-genre-list button span{font-size:12px!important;font-weight:700!important;color:var(--lil-ink)!important}
 #view-pessoal .lib2-grid .book-cover-fallback{align-items:flex-start!important}
 
+/* Espiritualidade removida */
+#personalMenu [data-personal-tab="spirituality"],.personal-panel[data-personal-panel="spirituality"],
+#view-pessoal .summary-spirit,#view-pessoal .personal-spirit-home{display:none!important}
+#view-pessoal .personal-summary-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+@media (max-width:760px){#view-pessoal .personal-summary-grid{grid-template-columns:1fr!important}}
+
 </style>
 </head>
 <body class="locked">
@@ -17135,7 +17141,7 @@ body.personal-workspace #personalWorkspaceBtn.active{background:#fff!important;c
         <div class="personal-head-copy">
           <span class="personal-eyebrow">VIDA PESSOAL</span>
           <h2>Meu espaço</h2>
-          <p>Trabalho de um lado, sua vida do outro. Aqui ficam suas tarefas, leituras e seu cantinho de espiritualidade.</p>
+          <p>Trabalho de um lado, sua vida do outro. Aqui ficam suas tarefas e suas leituras.</p>
           <div class="lilac-actions"><button type="button" class="lilac-btn" onclick="openPersonalTaskModal(true)"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Nova tarefa</span></button><button type="button" class="lilac-btn soft" onclick="showPersonalTab('library')"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5Z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5A2.5 2.5 0 0 1 20 21.5Z"/></svg><span>Biblioteca</span></button></div>
         </div>
         <div class="lilac-head-side">
@@ -19417,7 +19423,7 @@ function pDate(v){if(!v)return "";const d=new Date(String(v).slice(0,10)+"T12:00
 function pChecks(){const k=pKey();if(!personalState.routine_checks[k])personalState.routine_checks[k]={};return personalState.routine_checks[k]}
 function updateWorkspaceUI(){const p=workspaceMode==="personal";document.body.classList.toggle("personal-workspace",p);const wm=document.getElementById("workMenu"),pm=document.getElementById("personalMenu");if(wm)wm.hidden=p;if(pm)pm.hidden=!p;document.getElementById("workWorkspaceBtn")?.classList.toggle("active",!p);document.getElementById("personalWorkspaceBtn")?.classList.toggle("active",p);const sub=document.getElementById("brandSubtitle"),ctx=document.getElementById("profileContext");if(sub)sub.innerHTML=p?"Sua vida,<br>no seu próprio espaço.":"Disciplina hoje,<br>mais liberdade amanhã.";if(ctx)ctx.textContent=p?"Vida pessoal":"Trabalho"}
 function switchWorkspace(mode){workspaceMode=mode==="personal"?"personal":"work";localStorage.setItem(WORKSPACE_KEY,workspaceMode);showView(workspaceMode==="personal"?"pessoal":"inicio")}
-function showPersonalTab(tab,btn){if(!["home","tasks","library","spirituality"].includes(tab))tab="home";personalState.preferences.tab=tab;localStorage.setItem(PERSONAL_KEY,JSON.stringify(personalState));document.querySelectorAll("[data-personal-panel]").forEach(x=>x.classList.toggle("active",x.dataset.personalPanel===tab));document.querySelectorAll("[data-personal-tab]").forEach(x=>x.classList.toggle("active",x.dataset.personalTab===tab))}
+function showPersonalTab(tab,btn){if(!["home","tasks","library"].includes(tab))tab="home";personalState.preferences.tab=tab;localStorage.setItem(PERSONAL_KEY,JSON.stringify(personalState));document.querySelectorAll("[data-personal-panel]").forEach(x=>x.classList.toggle("active",x.dataset.personalPanel===tab));document.querySelectorAll("[data-personal-tab]").forEach(x=>x.classList.toggle("active",x.dataset.personalTab===tab))}
 function closePersonalModal(id){document.getElementById(id)?.classList.remove("open")}
 function openPersonalTaskModal(today=false,id=""){document.getElementById("personalTaskForm")?.reset();document.getElementById("personalTaskId").value="";document.getElementById("personalTaskModalTitle").textContent="Nova tarefa";document.getElementById("personalTaskToday").checked=!!today;document.getElementById("deletePersonalTaskBtn").hidden=true;if(id){const t=personalState.tasks.find(x=>x.id===id);if(t){document.getElementById("personalTaskId").value=t.id;document.getElementById("personalTaskTitle").value=t.title||"";document.getElementById("personalTaskCategory").value=t.category||"Geral";document.getElementById("personalTaskDue").value=t.due||"";document.getElementById("personalTaskNotes").value=t.notes||"";document.getElementById("personalTaskToday").checked=!!t.today;document.getElementById("personalTaskModalTitle").textContent="Editar tarefa";document.getElementById("deletePersonalTaskBtn").hidden=false}}document.getElementById("personalTaskModal")?.classList.add("open")}
 function savePersonalTask(e){e.preventDefault();const id=document.getElementById("personalTaskId").value,title=(document.getElementById("personalTaskTitle").value||"").trim();if(!title)return;const i=personalState.tasks.findIndex(x=>x.id===id),old=i>=0?personalState.tasks[i]:null,due=document.getElementById("personalTaskDue").value||"";const item={id:old?.id||"pt_"+Date.now(),title,category:document.getElementById("personalTaskCategory").value||"Geral",due,notes:(document.getElementById("personalTaskNotes").value||"").trim(),today:due?due===pKey():!!document.getElementById("personalTaskToday").checked,done:!!old?.done,createdAt:old?.createdAt||new Date().toISOString()};if(i>=0)personalState.tasks[i]=item;else personalState.tasks.unshift(item);pSave();closePersonalModal("personalTaskModal");renderPersonalWorkspace()}
