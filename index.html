@@ -15769,6 +15769,7 @@ body.demandas-layout .quick-add{display:none!important}
   #view-hoje .office-memo-hero{grid-template-columns:minmax(0,1.7fr) repeat(2,minmax(0,1fr)) auto!important}
 }
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 <style id="tema-trabalho-e-pessoal">
 
 :root{--ofc-navy:#1d2d4c;--ofc-navy2:#263a60;--ofc-ink:#12284e;--ofc-muted:#5d6878;--ofc-paper:#fffdf6;--ofc-cream:#f3eee2;--ofc-line:#e1d9c8;--ofc-red:#b8433a;--ofc-red-soft:#f6e3df;--ofc-kraft:#c69a63;--ofc-yellow:#fbefb0;--ofc-green:#3f7d5c;
@@ -15986,6 +15987,89 @@ body:not(.personal-workspace){background:var(--ofc-cream)!important}
 #view-pessoal .kindle-widget h3,#view-pessoal .kindle-widget h4{font-size:15px!important}
 #view-pessoal .kindle-side-heading h3{font-size:18px!important}
 #view-pessoal .personal-filter-row button,#view-pessoal .spirit-type-strip button,#view-pessoal [data-book-filter]{font-size:11.5px!important}
+
+/* ===== Vida pessoal: visual lilás delicado ===== */
+#view-pessoal{--lil-ink:#3b2f55;--lil-muted:#80768f;--lil-accent:#8a6fc0;--lil-rose:#c97aa0;--lil-line:#eee5f5;--lil-soft:#f3edfb;--lil-bg:#faf6fd}
+body.personal-workspace .main{background:radial-gradient(900px 500px at 100% 0%,rgba(234,214,244,.55),transparent 60%),radial-gradient(700px 500px at 0% 100%,rgba(250,224,236,.45),transparent 60%),#faf6fd!important}
+#view-pessoal,#view-pessoal .personal-shell,#view-pessoal .personal-panel,#view-pessoal .kindle-library-page,#view-pessoal .kindle-library-layout{background:transparent!important}
+#view-pessoal h2,#view-pessoal h3,#view-pessoal h4,#view-pessoal .personal-summary-card strong,#view-pessoal .kindle-library-stats strong,#view-pessoal .spirit-overview b,#view-pessoal .lilac-stats b{font-family:Quicksand,system-ui,sans-serif!important;font-weight:700!important;letter-spacing:-.2px!important}
+body.personal-workspace .sidebar{background:linear-gradient(180deg,#3a2e57 0%,#2b2442 100%)!important}
+#personalMenu .personal-side-btn{border-radius:14px!important}
+#personalMenu .personal-side-btn.active{background:#fff!important;color:var(--lil-ink)!important;box-shadow:inset 4px 0 0 #e7a6c6,0 6px 16px rgba(0,0,0,.18)!important}
+#personalMenu .personal-side-btn.active .ico{background:linear-gradient(135deg,#b79ae0,#e3a3c4)!important;color:#fff!important;border:0!important}
+body.personal-workspace .profile-avatar{background:linear-gradient(135deg,#f6d4e6,#e2d4f6)!important}
+body.personal-workspace #personalWorkspaceBtn.active{background:#fff!important;color:var(--lil-ink)!important}
+
+/* Cabeçalho único */
+#view-pessoal .lilac-head{position:relative!important;overflow:hidden!important;align-items:flex-end!important;padding:30px 32px!important;border:0!important;border-radius:28px!important;
+  background:linear-gradient(120deg,#f8e7f2 0%,#efe6fb 52%,#e7ecfb 100%)!important;box-shadow:0 16px 40px rgba(138,111,192,.12)!important}
+#view-pessoal .lilac-head::before{content:"";position:absolute;width:260px;height:260px;right:-60px;top:-110px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.9),rgba(255,255,255,0) 70%)}
+#view-pessoal .lilac-head::after{content:"";position:absolute;width:180px;height:180px;left:38%;bottom:-120px;border-radius:50%;background:radial-gradient(circle,rgba(231,166,198,.35),rgba(231,166,198,0) 70%)}
+.lilac-deco{position:absolute;right:250px;top:50%;width:220px;height:140px;transform:translateY(-50%);color:#b79ae0;opacity:.75;pointer-events:none}
+#view-pessoal .lilac-head .personal-head-copy{position:relative;z-index:1}
+#view-pessoal .lilac-head .personal-eyebrow{display:inline-block!important;padding:5px 10px!important;border-radius:999px!important;background:rgba(255,255,255,.75)!important;color:var(--lil-rose)!important;font-size:10px!important;letter-spacing:2px!important}
+#view-pessoal .lilac-head h2{margin:10px 0 6px!important;font-size:42px!important;color:var(--lil-ink)!important}
+#view-pessoal .lilac-head p{max-width:520px!important;color:var(--lil-muted)!important;font-size:13.5px!important;line-height:1.55!important}
+.lilac-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.lilac-btn{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border:0;border-radius:14px;background:linear-gradient(135deg,#7f63b8,#a983cf);color:#fff;font-weight:800;font-size:13px;cursor:pointer;box-shadow:0 10px 22px rgba(127,99,184,.28)}
+.lilac-btn.soft{background:#fff;color:var(--lil-ink);box-shadow:0 6px 14px rgba(138,111,192,.1)}
+.lilac-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.lilac-btn:hover{filter:brightness(1.05);transform:translateY(-1px)}
+#view-pessoal .lilac-head-side{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+#view-pessoal .lilac-date{min-width:170px;padding:12px 18px!important;border:0!important;border-radius:18px!important;background:rgba(255,255,255,.8)!important;box-shadow:0 8px 20px rgba(138,111,192,.12)}
+#view-pessoal .lilac-date small{color:var(--lil-rose)!important;font-size:9.5px!important;letter-spacing:1.8px!important;font-weight:900!important}
+#view-pessoal .lilac-date strong{display:block;margin-top:2px;color:var(--lil-ink)!important;font-family:Quicksand,system-ui,sans-serif!important;font-size:16px!important;font-weight:700!important}
+.lilac-stats{display:flex;gap:8px}
+.lilac-stats span{display:flex;flex-direction:column;align-items:center;min-width:72px;padding:9px 10px;border-radius:16px;background:rgba(255,255,255,.8)}
+.lilac-stats b{color:var(--lil-ink);font-size:22px;line-height:1}
+.lilac-stats small{margin-top:3px;color:var(--lil-muted);font-size:10px!important;font-weight:800;letter-spacing:.6px;text-transform:uppercase}
+@media (max-width:1180px){.lilac-deco{display:none}}
+@media (max-width:760px){#view-pessoal .lilac-head{flex-direction:column!important;align-items:flex-start!important;padding:22px!important} #view-pessoal .lilac-head h2{font-size:32px!important} #view-pessoal .lilac-head-side{align-items:flex-start}}
+
+/* Cartões */
+#view-pessoal .personal-card,#view-pessoal .kindle-books-surface,#view-pessoal .kindle-widget,#view-pessoal .kindle-genre-list,#view-pessoal .kindle-library-genres>.kindle-side-heading,
+#view-pessoal .kindle-side-note,#view-pessoal .spirit-filter-shell,#view-pessoal .spirit-list,#view-pessoal .personal-tasks-surface{background:#fff!important;border:1px solid var(--lil-line)!important;border-radius:22px!important;box-shadow:0 10px 28px rgba(138,111,192,.07)!important}
+#view-pessoal .personal-card-head span,#view-pessoal .personal-section-line span,#view-pessoal .kindle-side-heading span{display:inline-block;padding:3px 9px;border-radius:999px;background:#fbeef5;color:var(--lil-rose)!important;font-size:9.5px!important;font-weight:900!important;letter-spacing:1.6px!important}
+#view-pessoal .personal-card-head h3,#view-pessoal .personal-section-line h3{margin-top:6px!important;font-size:21px!important}
+#view-pessoal .personal-card-head button{width:38px!important;height:38px!important;border:0!important;border-radius:50%!important;background:linear-gradient(135deg,#b79ae0,#e3a3c4)!important;color:#fff!important;font-size:20px!important;box-shadow:0 8px 16px rgba(183,154,224,.35)!important}
+#view-pessoal [class*="empty"],#view-pessoal .personal-list:empty,#view-pessoal .personal-reading-home>div:only-child{background:linear-gradient(180deg,#fdfbff,#f8f2fc)!important;border:1.5px dashed #e3d4f0!important;border-radius:18px!important}
+
+/* Resumo com tons pastel */
+#view-pessoal .personal-summary-card{background:#fff!important;border:1px solid var(--lil-line)!important;border-radius:22px!important;box-shadow:0 10px 26px rgba(138,111,192,.07)!important;transition:transform .15s}
+#view-pessoal .personal-summary-card:hover{transform:translateY(-2px)}
+#view-pessoal .personal-summary-card strong{color:var(--lil-ink)!important;font-size:30px!important}
+#view-pessoal .personal-summary-card span:not(.personal-summary-icon){color:var(--lil-ink)!important;font-size:12.5px!important;font-weight:800!important}
+#view-pessoal .personal-summary-icon{width:46px!important;height:46px!important;border-radius:16px!important;display:grid!important;place-items:center!important}
+#view-pessoal .personal-summary-icon svg{width:22px!important;height:22px!important;stroke:currentColor!important;fill:none!important}
+#view-pessoal .summary-tasks .personal-summary-icon{background:#efe8fb!important;color:#7f63b8!important}
+#view-pessoal .summary-reading .personal-summary-icon{background:#fbe7f0!important;color:#c26a95!important}
+#view-pessoal .summary-read .personal-summary-icon{background:#e5f4ee!important;color:#4c957a!important}
+#view-pessoal .summary-spirit .personal-summary-icon{background:#fdf0e3!important;color:#c4874a!important}
+#view-pessoal .personal-summary-card i{color:#c9b7e3!important}
+
+/* Filtros e botões */
+#view-pessoal .personal-filter-row,#view-pessoal .spirit-type-strip{background:var(--lil-soft)!important;border-radius:999px!important;padding:4px!important}
+#view-pessoal .personal-filter-row button,#view-pessoal .spirit-type-strip button,#view-pessoal [data-book-filter]{border:0!important;border-radius:999px!important;background:transparent!important;color:var(--lil-muted)!important;font-weight:800!important}
+#view-pessoal .personal-filter-row button.active,#view-pessoal .spirit-type-strip button.active,#view-pessoal [data-book-filter].active{background:#fff!important;color:var(--lil-ink)!important;box-shadow:0 4px 10px rgba(138,111,192,.15)!important}
+#view-pessoal [data-book-filter]{background:#fff!important;border:1px solid var(--lil-line)!important}
+#view-pessoal .kindle-widget button,#view-pessoal .kindle-books-surface button.active{background:linear-gradient(135deg,#b79ae0,#e3a3c4)!important;border:0!important;color:#fff!important}
+#view-pessoal .kindle-library-stats>button{background:#fff!important;border:1px solid var(--lil-line)!important;border-radius:20px!important}
+#view-pessoal .kindle-stat-icon{border-radius:14px!important}
+#view-pessoal .kindle-library-stats>button:nth-child(1) .kindle-stat-icon{background:#efe8fb!important;color:#7f63b8!important}
+#view-pessoal .kindle-library-stats>button:nth-child(2) .kindle-stat-icon{background:#fbe7f0!important;color:#c26a95!important}
+#view-pessoal .kindle-library-stats>button:nth-child(3) .kindle-stat-icon{background:#e5f4ee!important;color:#4c957a!important}
+#view-pessoal .kindle-library-stats>button:nth-child(4) .kindle-stat-icon{background:#fdf0e3!important;color:#c4874a!important}
+#view-pessoal .stat-stack i:nth-child(1){background:#b79ae0!important}#view-pessoal .stat-stack i:nth-child(2){background:#e3a3c4!important}#view-pessoal .stat-stack i:nth-child(3){background:#8fc7b0!important}
+#view-pessoal .spirit-overview>div{background:#fff!important;border:1px solid var(--lil-line)!important;border-radius:20px!important}
+#view-pessoal .spirit-overview>div>span{background:linear-gradient(135deg,#b79ae0,#e3a3c4)!important;color:#fff!important;border-radius:14px!important}
+#view-pessoal .shelf-widget [class*="visual"],#view-pessoal .kindle-shelf-visual{background:linear-gradient(180deg,#f1e8f8,#e4d7f0)!important}
+#view-pessoal .kindle-genre-list [class*="dot"],#view-pessoal .kindle-genre-list i{filter:saturate(.7)}
+#view-pessoal .kindle-side-note{background:linear-gradient(160deg,#fff,#fbf1f7)!important}
+
+#view-pessoal .lilac-head .lilac-btn{background:linear-gradient(135deg,#7f63b8,#b48ad4)!important;color:#fff!important;box-shadow:0 10px 22px rgba(127,99,184,.28)!important;height:44px!important;border-radius:14px!important}
+#view-pessoal .lilac-head .lilac-btn.soft{background:#fff!important;color:var(--lil-ink)!important;box-shadow:0 6px 14px rgba(138,111,192,.12)!important}
+#view-pessoal [class*="spirit-empty"] [class*="icon"],#view-pessoal .spirit-list [class*="empty"] span:first-child{background:linear-gradient(135deg,#b79ae0,#e3a3c4)!important;color:#fff!important}
+#view-pessoal .shelf-widget>div:last-of-type,#view-pessoal .shelf-widget [class*="shelf"]:not(h4):not(small){background:linear-gradient(180deg,#f1e8f8,#e2d4ef)!important}
 
 </style>
 </head>
@@ -16960,44 +17044,16 @@ body:not(.personal-workspace){background:var(--ofc-cream)!important}
   <div class="personal-shell">
 
     <section class="personal-panel active" data-personal-panel="home">
-      <header class="personal-hero">
-        <div class="personal-hero-copy">
+      <header class="personal-page-head lilac-head">
+        <svg class="lilac-deco" viewBox="0 0 220 140" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M30 120c10-30 30-48 58-56"/><path d="M52 92c-10-4-16-12-16-22 10 2 16 10 16 22Z"/><path d="M68 76c-2-10 2-19 11-24 2 10-2 19-11 24Z"/><path d="M86 66c6-8 15-11 24-8-5 8-14 11-24 8Z"/><circle cx="150" cy="44" r="18"/><path d="M160 30a18 18 0 1 0 8 28 14 14 0 1 1-8-28Z" fill="currentColor" stroke="none" opacity=".18"/><path d="M190 96l3 8 8 3-8 3-3 8-3-8-8-3 8-3Z"/><path d="M124 104l2 5 5 2-5 2-2 5-2-5-5-2 5-2Z"/><path d="M200 22l2 4 4 2-4 2-2 4-2-4-4-2 4-2Z"/></g></svg>
+        <div class="personal-head-copy">
           <span class="personal-eyebrow">VIDA PESSOAL</span>
           <h2>Meu espaço</h2>
-          <p>Trabalho de um lado. Sua vida do outro. Aqui ficam suas tarefas, leituras e seu espaço de espiritualidade.</p>
-          <div class="personal-hero-actions">
-            <button type="button" onclick="openPersonalTaskModal(true)">
-              <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-              <span>Nova tarefa</span>
-            </button>
-            <button type="button" class="soft" onclick="showPersonalTab('library')">
-              <svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5Z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5A2.5 2.5 0 0 1 20 21.5Z"/></svg>
-              <span>Biblioteca</span>
-            </button>
-          </div>
+          <p>Trabalho de um lado, sua vida do outro. Aqui ficam suas tarefas, leituras e seu cantinho de espiritualidade.</p>
+          <div class="lilac-actions"><button type="button" class="lilac-btn" onclick="openPersonalTaskModal(true)"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Nova tarefa</span></button><button type="button" class="lilac-btn soft" onclick="showPersonalTab('library')"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5Z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5A2.5 2.5 0 0 1 20 21.5Z"/></svg><span>Biblioteca</span></button></div>
         </div>
-
-        <div class="personal-hero-art" aria-hidden="true">
-          <span class="personal-art-orbit orbit-one"></span>
-          <span class="personal-art-orbit orbit-two"></span>
-          <div class="personal-art-chip chip-task">
-            <svg viewBox="0 0 24 24"><path d="M6 12l4 4 8-9"/></svg>
-            <b>Hoje</b>
-          </div>
-          <div class="personal-art-chip chip-book">
-            <svg viewBox="0 0 24 24"><path d="M5 4h6v16H7a2 2 0 0 0-2 2Z"/><path d="M19 4h-6v16h4a2 2 0 0 1 2 2Z"/></svg>
-            <b>Leituras</b>
-          </div>
-          <div class="personal-art-chip chip-spirit">
-            <svg viewBox="0 0 24 24"><path d="M12 3c1.2 3.6 3.4 5.8 7 7-3.6 1.2-5.8 3.4-7 7-1.2-3.6-3.4-5.8-7-7 3.6-1.2 5.8-3.4 7-7Z"/></svg>
-            <b>Meu centro</b>
-          </div>
-        </div>
-
-        <div class="personal-hero-date">
-          <span id="personalHeroWeekday">HOJE</span>
-          <strong id="personalHeroDay">05</strong>
-          <small id="personalHeroMonth">outubro</small>
+        <div class="lilac-head-side">
+          <div class="lilac-date"><small class="lilac-date-wd">HOJE</small><strong class="banner-live-date">Hoje</strong></div>
         </div>
       </header>
 
@@ -17052,22 +17108,17 @@ body:not(.personal-workspace){background:var(--ofc-cream)!important}
     </section>
 
     <section class="personal-panel" data-personal-panel="tasks">
-      <header class="personal-page-head personal-tasks-head">
+      <header class="personal-page-head lilac-head">
+        <svg class="lilac-deco" viewBox="0 0 220 140" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M30 120c10-30 30-48 58-56"/><path d="M52 92c-10-4-16-12-16-22 10 2 16 10 16 22Z"/><path d="M68 76c-2-10 2-19 11-24 2 10-2 19-11 24Z"/><path d="M86 66c6-8 15-11 24-8-5 8-14 11-24 8Z"/><circle cx="150" cy="44" r="18"/><path d="M160 30a18 18 0 1 0 8 28 14 14 0 1 1-8-28Z" fill="currentColor" stroke="none" opacity=".18"/><path d="M190 96l3 8 8 3-8 3-3 8-3-8-8-3 8-3Z"/><path d="M124 104l2 5 5 2-5 2-2 5-2-5-5-2 5-2Z"/><path d="M200 22l2 4 4 2-4 2-2 4-2-4-4-2 4-2Z"/></g></svg>
         <div class="personal-head-copy">
           <span class="personal-eyebrow">VIDA PESSOAL</span>
           <h2>Minhas tarefas</h2>
           <p>Nada daqui aparece nas Pendências ou Demandas do trabalho.</p>
+          <div class="lilac-actions"><button type="button" class="lilac-btn" onclick="openPersonalTaskModal(false)"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Nova tarefa</span></button></div>
         </div>
-        <div class="personal-task-head-side">
-          <div class="personal-task-mini-stats">
-            <span><b id="personalTaskOpenStat">0</b><small>abertas</small></span>
-            <span><b id="personalTaskTodayStat">0</b><small>hoje</small></span>
-            <span><b id="personalTaskDoneStat">0</b><small>concluídas</small></span>
-          </div>
-          <button onclick="openPersonalTaskModal(false)">
-            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-            Nova tarefa
-          </button>
+        <div class="lilac-head-side">
+          <div class="lilac-stats"><span><b id="personalTaskOpenStat">0</b><small>abertas</small></span><span><b id="personalTaskTodayStat">0</b><small>hoje</small></span><span><b id="personalTaskDoneStat">0</b><small>concluídas</small></span></div>
+          <div class="lilac-date"><small class="lilac-date-wd">HOJE</small><strong class="banner-live-date">Hoje</strong></div>
         </div>
       </header>
       <div class="personal-card personal-tasks-surface">
@@ -17087,14 +17138,15 @@ body:not(.personal-workspace){background:var(--ofc-cream)!important}
   <section class="kindle-library-page">
 
     <header class="personal-page-head lilac-head">
+        <svg class="lilac-deco" viewBox="0 0 220 140" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M30 120c10-30 30-48 58-56"/><path d="M52 92c-10-4-16-12-16-22 10 2 16 10 16 22Z"/><path d="M68 76c-2-10 2-19 11-24 2 10-2 19-11 24Z"/><path d="M86 66c6-8 15-11 24-8-5 8-14 11-24 8Z"/><circle cx="150" cy="44" r="18"/><path d="M160 30a18 18 0 1 0 8 28 14 14 0 1 1-8-28Z" fill="currentColor" stroke="none" opacity=".18"/><path d="M190 96l3 8 8 3-8 3-3 8-3-8-8-3 8-3Z"/><path d="M124 104l2 5 5 2-5 2-2 5-2-5-5-2 5-2Z"/><path d="M200 22l2 4 4 2-4 2-2 4-2-4-4-2 4-2Z"/></g></svg>
         <div class="personal-head-copy">
           <span class="personal-eyebrow">MINHA ESTANTE</span>
           <h2>Biblioteca</h2>
           <p>Mais livros, mais histórias, mais eu.</p>
+          <div class="lilac-actions"><button type="button" class="lilac-btn" onclick="openPersonalBookModal()"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Adicionar livro</span></button></div>
         </div>
         <div class="lilac-head-side">
           <div class="lilac-date"><small class="lilac-date-wd">HOJE</small><strong class="banner-live-date">Hoje</strong></div>
-          <button type="button" onclick="openPersonalBookModal()"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Adicionar livro</button>
         </div>
       </header>
 
@@ -17234,14 +17286,15 @@ body:not(.personal-workspace){background:var(--ofc-cream)!important}
 
 <section class="personal-panel" data-personal-panel="spirituality">
       <header class="personal-page-head lilac-head">
+        <svg class="lilac-deco" viewBox="0 0 220 140" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M30 120c10-30 30-48 58-56"/><path d="M52 92c-10-4-16-12-16-22 10 2 16 10 16 22Z"/><path d="M68 76c-2-10 2-19 11-24 2 10-2 19-11 24Z"/><path d="M86 66c6-8 15-11 24-8-5 8-14 11-24 8Z"/><circle cx="150" cy="44" r="18"/><path d="M160 30a18 18 0 1 0 8 28 14 14 0 1 1-8-28Z" fill="currentColor" stroke="none" opacity=".18"/><path d="M190 96l3 8 8 3-8 3-3 8-3-8-8-3 8-3Z"/><path d="M124 104l2 5 5 2-5 2-2 5-2-5-5-2 5-2Z"/><path d="M200 22l2 4 4 2-4 2-2 4-2-4-4-2 4-2Z"/></g></svg>
         <div class="personal-head-copy">
           <span class="personal-eyebrow">MEU SANTUÁRIO</span>
           <h2>Espiritualidade</h2>
           <p>Intuição, gratidão, orações, sinais e tudo que eu quiser guardar do meu caminho.</p>
+          <div class="lilac-actions"><button type="button" class="lilac-btn" onclick="openPersonalSpiritModal()"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Novo registro</span></button></div>
         </div>
         <div class="lilac-head-side">
           <div class="lilac-date"><small class="lilac-date-wd">HOJE</small><strong class="banner-live-date">Hoje</strong></div>
-          <button type="button" onclick="openPersonalSpiritModal()"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Novo registro</button>
         </div>
       </header>
 
