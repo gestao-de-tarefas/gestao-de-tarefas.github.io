@@ -17503,18 +17503,18 @@ body:not(.personal-workspace){background:var(--ofc-cream)!important}
         <label class="password-field">
           <span>Nova senha</span>
           <div class="password-input-wrap">
-            <input id="newPanelPassword" type="password" autocomplete="new-password" minlength="8" required>
+            <input id="newPanelPassword" type="password" autocomplete="new-password" required>
             <button type="button" onclick="togglePanelPassword('newPanelPassword',this)" aria-label="Mostrar ou ocultar senha">
               <svg viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
             </button>
           </div>
-          <small>Mínimo de 8 caracteres. Prefira letras, números e símbolo.</small>
+          <small>Pelo menos 6 caracteres (exigência do banco online).</small>
         </label>
 
         <label class="password-field">
           <span>Confirmar nova senha</span>
           <div class="password-input-wrap">
-            <input id="confirmPanelPassword" type="password" autocomplete="new-password" minlength="8" required>
+            <input id="confirmPanelPassword" type="password" autocomplete="new-password" required>
             <button type="button" onclick="togglePanelPassword('confirmPanelPassword',this)" aria-label="Mostrar ou ocultar senha">
               <svg viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
             </button>
@@ -20013,8 +20013,8 @@ async function changePanelPassword(event){
   if(!msg||!button)return;
   msg.classList.remove("success");
 
-  if(next.length<8){
-    msg.textContent="A nova senha precisa ter pelo menos 8 caracteres.";
+  if(next.length<6){
+    msg.textContent="O banco online só aceita senhas com pelo menos 6 caracteres.";
     return;
   }
   if(next!==confirmNext){
