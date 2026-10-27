@@ -16182,35 +16182,82 @@ body.personal-workspace #personalWorkspaceBtn.active{background:#fff!important;c
 #view-hoje .office-memo-hero .uniform-hero-tools .uniform-today-chip{grid-row:span 2;width:112px!important;flex:none!important;min-width:0!important;order:0!important}
 @media (max-width:760px){#view-hoje .office-memo-hero .uniform-hero-tools{grid-template-columns:auto auto auto!important;justify-content:flex-start!important} #view-hoje .office-memo-hero .uniform-hero-tools .uniform-today-chip{grid-row:auto}}
 .office-memo-hero .uniform-today-chip{align-items:stretch!important;justify-content:flex-start!important;gap:0!important}.office-memo-hero .ofc-cal-top,.office-memo-hero .ofc-cal-body{width:100%!important;box-sizing:border-box!important}
+/* Login: crachá */
+.login-shell::before{background:linear-gradient(110deg,rgba(18,32,58,.82) 0%,rgba(18,32,58,.6) 50%,rgba(18,32,58,.45) 100%)!important;backdrop-filter:blur(2px)}
+.login-shell{justify-content:center!important;align-items:center!important;padding:24px!important}
+.login-panel.ofc-badge{position:relative!important;width:min(400px,92vw)!important;min-width:0!important;margin:0!important;padding:0 0 18px!important;border:0!important;border-radius:16px!important;background:#fffdf6!important;box-shadow:0 30px 60px rgba(0,0,0,.45)!important;overflow:visible!important;transform:rotate(-1deg)}
+.ofc-badge-clip{position:absolute;left:50%;top:-34px;width:64px;height:44px;transform:translateX(-50%);border-radius:10px 10px 6px 6px;background:linear-gradient(180deg,#c9ced8,#9aa2b1);box-shadow:inset 0 -3px 0 rgba(0,0,0,.15)}
+.ofc-badge-clip::before{content:"";position:absolute;left:50%;top:10px;width:28px;height:8px;transform:translateX(-50%);border-radius:4px;background:#5b6472}
+.ofc-badge-clip::after{content:"";position:absolute;left:50%;bottom:100%;width:14px;height:60px;transform:translateX(-50%);background:linear-gradient(90deg,#b8433a,#d0574d,#b8433a)}
+.ofc-badge-head{padding:22px 24px 16px;border-radius:16px 16px 0 0;background:linear-gradient(135deg,#1d2d4c,#263a60);color:#fff;text-align:center}
+.ofc-badge-head span{display:block;color:#f2c94c;font:800 10px/1 ui-monospace,Menlo,monospace;letter-spacing:2.4px}
+.ofc-badge-head strong{display:block;margin-top:6px;font:900 20px/1.1 Inter,system-ui,sans-serif;letter-spacing:-.3px}
+.ofc-badge-id{display:flex;align-items:center;gap:14px;margin:-18px 22px 18px;padding:12px 14px;border:1px solid #e1d9c8;border-radius:12px;background:#fff;box-shadow:0 8px 18px rgba(29,45,76,.12)}
+.ofc-badge-avatar{flex:none;width:56px;height:56px;display:grid;place-items:center;border-radius:12px;background:#fbefb0;font-size:30px;border:2px solid #fff;box-shadow:0 0 0 1px #e1d9c8}
+.login-panel.ofc-badge h1{margin:0!important;color:#12284e!important;font:900 20px/1.15 Inter,system-ui,sans-serif!important;letter-spacing:-.4px!important;text-align:left!important}
+.ofc-badge-id p{margin:4px 0 0;color:#5d6878;font-size:12px}
+.ofc-login-label{display:block;margin:0 24px 6px;color:#b8433a;font:800 10px/1 ui-monospace,Menlo,monospace;letter-spacing:2px}
+.login-panel.ofc-badge .login-field{margin:0 24px 14px!important;height:48px!important;padding:0 12px!important;border:1.5px solid #ddd5c4!important;border-radius:10px!important;background:#fff!important;box-shadow:none!important;display:flex!important;align-items:center!important;gap:10px!important}
+.login-panel.ofc-badge .login-field:focus-within{border-color:#1d2d4c!important;box-shadow:0 0 0 3px rgba(29,45,76,.12)!important}
+.login-panel.ofc-badge .field-icon{color:#5d6878!important;display:grid;place-items:center}
+.login-panel.ofc-badge .field-icon svg,.login-panel.ofc-badge .password-toggle svg{width:18px!important;height:18px!important;fill:none!important;stroke:currentColor!important;stroke-width:2!important}
+.login-panel.ofc-badge .login-field input{flex:1;min-width:0;height:100%;border:0!important;outline:0!important;background:transparent!important;color:#12284e!important;font:600 15px Inter,system-ui,sans-serif!important;box-shadow:none!important}
+.login-panel.ofc-badge .login-field input::placeholder{color:#a8a397!important;font-weight:500}
+.login-panel.ofc-badge .login-field input:-webkit-autofill{-webkit-box-shadow:0 0 0 40px #fff inset!important;-webkit-text-fill-color:#12284e!important}
+.login-panel.ofc-badge .password-toggle{border:0!important;background:none!important;color:#5d6878!important;cursor:pointer;padding:4px!important}
+.login-panel.ofc-badge .login-error{min-height:0!important;margin:0 24px 10px!important;color:#b8433a!important;font-size:12.5px!important;font-weight:700!important;text-align:left!important}
+.login-panel.ofc-badge .login-error:not(:empty){padding:9px 12px!important;border-radius:8px!important;background:#f6e3df!important}
+.login-panel.ofc-badge .login-submit{display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;width:calc(100% - 48px)!important;height:50px!important;margin:4px 24px 0!important;border:0!important;border-radius:10px!important;background:#1d2d4c!important;color:#fff!important;font:800 15px Inter,system-ui,sans-serif!important;box-shadow:0 10px 20px rgba(29,45,76,.28)!important;cursor:pointer}
+.login-panel.ofc-badge .login-submit:hover{background:#b8433a!important}
+.login-panel.ofc-badge .login-submit svg{width:18px!important;height:18px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.4!important}
+.ofc-badge-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 24px 0;padding-top:14px;border-top:1px dashed #ddd5c4}
+.ofc-badge-barcode{width:120px;height:26px;background:repeating-linear-gradient(90deg,#12284e 0 2px,transparent 2px 4px,#12284e 4px 5px,transparent 5px 8px,#12284e 8px 11px,transparent 11px 12px)}
+.ofc-badge-foot small{color:#5d6878;font:800 9px/1.2 ui-monospace,Menlo,monospace;letter-spacing:1px;text-align:right}
+.login-heart,.login-paw{display:none!important}
+@media (max-width:760px){.login-panel.ofc-badge{transform:none}}
+.ofc-badge-head{padding:22px 24px 36px!important}.login-panel.ofc-badge .login-field input{padding:0!important;margin:0!important}.login-panel.ofc-badge .field-icon{position:static!important;width:20px!important;flex:none!important}
+.login-panel.ofc-badge .field-icon{height:100%!important;display:flex!important;align-items:center!important;justify-content:center!important;transform:none!important;top:auto!important;left:auto!important}
 </style>
 </head>
 <body class="locked">
 
 
 <div class="login-shell" id="loginShell">
-  <section class="login-panel">
-    <div class="login-heart"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7-4.35-7-10a4 4 0 0 1 7-2.3A4 4 0 0 1 19 10.5c0 5.65-7 10-7 10Z"/></svg></div>
-    <h1>Bem-vinda de volta</h1>
+  <section class="login-panel ofc-badge">
+    <span class="ofc-badge-clip" aria-hidden="true"></span>
+    <div class="ofc-badge-head">
+      <span>DUNDER MIFFLIN · SCRANTON</span>
+      <strong>Painel de Trabalho</strong>
+    </div>
+    <div class="ofc-badge-id">
+      <div class="ofc-badge-avatar" aria-hidden="true">🐰</div>
+      <div>
+        <h1>Bem-vinda de volta</h1>
+        <p>Acesso restrito. Identifique-se para entrar.</p>
+      </div>
+    </div>
 
-    
-<div class="login-field">
-  <span class="field-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z"/><path d="M4 20a8 8 0 0 1 16 0"/></svg></span>
-  <input id="loginUser" autocomplete="username" value="" aria-label="Usuário">
-</div>
+    <label class="ofc-login-label" for="loginUser">USUÁRIO</label>
+    <div class="login-field">
+      <span class="field-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z"/><path d="M4 20a8 8 0 0 1 16 0"/></svg></span>
+      <input id="loginUser" autocomplete="username" value="" placeholder="seu usuário" aria-label="Usuário">
+    </div>
 
-<div class="login-field login-field-pass">
-  <span class="field-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><path d="M12 15v2"/></svg></span>
-  <input id="loginPass" type="password" autocomplete="current-password" value="" aria-label="Senha">
-  <button type="button" class="password-toggle" id="togglePass" aria-label="Mostrar senha"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="2.5"/></svg></button>
-</div>
+    <label class="ofc-login-label" for="loginPass">SENHA</label>
+    <div class="login-field login-field-pass">
+      <span class="field-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><path d="M12 15v2"/></svg></span>
+      <input id="loginPass" type="password" autocomplete="current-password" value="" placeholder="sua senha" aria-label="Senha">
+      <button type="button" class="password-toggle" id="togglePass" aria-label="Mostrar senha"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="2.5"/></svg></button>
+    </div>
 
-<div class="login-error" id="authError"></div>
+    <div class="login-error" id="authError" role="alert"></div>
 
     <button class="login-submit" type="button" id="authBtn" aria-label="Entrar">
+      <span>Entrar</span>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
     </button>
 
-    <div class="login-paw"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="8" r="2"/><circle cx="11" cy="5.5" r="2"/><circle cx="16" cy="8" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7.5 17.5c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5c0 1.7-1.5 3-4.5 3s-4.5-1.3-4.5-3Z"/></svg></div>
+    <div class="ofc-badge-foot"><span class="ofc-badge-barcode" aria-hidden="true"></span><small>CRACHÁ Nº 0427 · FUNCIONÁRIA</small></div>
   </section>
 </div>
 
