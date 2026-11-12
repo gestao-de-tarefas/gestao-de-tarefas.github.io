@@ -16217,6 +16217,19 @@ body.personal-workspace #personalWorkspaceBtn.active{background:#fff!important;c
 @media (max-width:760px){.login-panel.ofc-badge{transform:none}}
 .ofc-badge-head{padding:22px 24px 36px!important}.login-panel.ofc-badge .login-field input{padding:0!important;margin:0!important}.login-panel.ofc-badge .field-icon{position:static!important;width:20px!important;flex:none!important}
 .login-panel.ofc-badge .field-icon{height:100%!important;display:flex!important;align-items:center!important;justify-content:center!important;transform:none!important;top:auto!important;left:auto!important}
+/* Esqueceu a senha */
+.ofc-forgot-link,.ofc-back-link{display:block;border:0;background:none;cursor:pointer;font:700 12.5px Inter,system-ui,sans-serif;color:#1d2d4c;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(29,45,76,.35)}
+.ofc-forgot-link{margin:-6px 24px 12px auto;padding:2px 0}
+.ofc-forgot-link:hover,.ofc-back-link:hover{color:#b8433a;text-decoration-color:currentColor}
+.ofc-back-link{display:none;margin:12px auto 0;padding:4px 8px}
+.ofc-reset-fields{display:none}
+.ofc-login-info{margin:0 24px 10px;color:#3f7d5c;font-size:12.5px;font-weight:700;line-height:1.45}
+.ofc-login-info:empty{display:none}
+.ofc-login-info:not(:empty){padding:9px 12px;border-radius:8px;background:#e3f1e9}
+.login-panel.ofc-badge[data-mode="forgot"] .ofc-pass-label,.login-panel.ofc-badge[data-mode="forgot"] .login-field-pass,.login-panel.ofc-badge[data-mode="forgot"] .ofc-forgot-link{display:none!important}
+.login-panel.ofc-badge[data-mode="reset"] .ofc-user-label,.login-panel.ofc-badge[data-mode="reset"] .login-field-user,.login-panel.ofc-badge[data-mode="reset"] .ofc-pass-label,.login-panel.ofc-badge[data-mode="reset"] .login-field-pass,.login-panel.ofc-badge[data-mode="reset"] .ofc-forgot-link{display:none!important}
+.login-panel.ofc-badge[data-mode="reset"] .ofc-reset-fields{display:block}
+.login-panel.ofc-badge[data-mode="forgot"] .ofc-back-link,.login-panel.ofc-badge[data-mode="reset"] .ofc-back-link{display:block}
 </style>
 </head>
 <body class="locked">
@@ -16237,25 +16250,43 @@ body.personal-workspace #personalWorkspaceBtn.active{background:#fff!important;c
       </div>
     </div>
 
-    <label class="ofc-login-label" for="loginUser">USUÁRIO</label>
-    <div class="login-field">
+    <label class="ofc-login-label ofc-user-label" for="loginUser">USUÁRIO</label>
+    <div class="login-field login-field-user">
       <span class="field-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z"/><path d="M4 20a8 8 0 0 1 16 0"/></svg></span>
       <input id="loginUser" autocomplete="username" value="" placeholder="seu usuário" aria-label="Usuário">
     </div>
 
-    <label class="ofc-login-label" for="loginPass">SENHA</label>
+    <label class="ofc-login-label ofc-pass-label" for="loginPass">SENHA</label>
     <div class="login-field login-field-pass">
       <span class="field-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><path d="M12 15v2"/></svg></span>
       <input id="loginPass" type="password" autocomplete="current-password" value="" placeholder="sua senha" aria-label="Senha">
       <button type="button" class="password-toggle" id="togglePass" aria-label="Mostrar senha"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="2.5"/></svg></button>
     </div>
 
+    <button type="button" class="ofc-forgot-link" id="forgotPassBtn">Esqueceu a senha?</button>
+
+    <div class="ofc-reset-fields">
+      <label class="ofc-login-label" for="resetPass1">NOVA SENHA</label>
+      <div class="login-field">
+        <span class="field-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><path d="M12 15v2"/></svg></span>
+        <input id="resetPass1" type="password" autocomplete="new-password" placeholder="pelo menos 6 caracteres" aria-label="Nova senha">
+      </div>
+      <label class="ofc-login-label" for="resetPass2">CONFIRMAR NOVA SENHA</label>
+      <div class="login-field">
+        <span class="field-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <input id="resetPass2" type="password" autocomplete="new-password" placeholder="repita a nova senha" aria-label="Confirmar nova senha">
+      </div>
+    </div>
+
+    <p class="ofc-login-info" id="loginInfo" role="status"></p>
     <div class="login-error" id="authError" role="alert"></div>
 
     <button class="login-submit" type="button" id="authBtn" aria-label="Entrar">
       <span>Entrar</span>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
     </button>
+
+    <button type="button" class="ofc-back-link" id="loginBackBtn">← Voltar para o login</button>
 
     <div class="ofc-badge-foot"><span class="ofc-badge-barcode" aria-hidden="true"></span><small>CRACHÁ Nº 0427 · FUNCIONÁRIA</small></div>
   </section>
@@ -18041,7 +18072,6 @@ const SESSION_KEY="painel_login_ok_v1";
    ========================================================= */
 const SUPABASE_URL="https://brohmonslylyaxeuenue.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_LyFNpYDt_QWtMhXp7FG7mQ_wiHQpM3y";
-const PANEL_AUTH_EMAIL="julia.souza@painel.app";
 const PUBLISHED_HOSTS=["gestao-de-tarefas.github.io","bluemixangel-cloud.github.io"];
 
 const supabaseClient=window.supabase?.createClient(
@@ -18166,7 +18196,7 @@ async function loadCloudState(){
 }
 
 async function restoreCloudSession(){
-  if(!supabaseClient)return;
+  if(!supabaseClient||recoveryTokens)return;
   try{
     const {data:{session}}=await supabaseClient.auth.getSession();
     if(!session?.user?.id)return;
@@ -20243,14 +20273,18 @@ async function changePanelPassword(event){
   msg.textContent="Verificando a senha atual...";
 
   try{
-    const {data:verified,error:verifyError}=await supabaseClient.auth.signInWithPassword({
-      email:PANEL_AUTH_EMAIL,
-      password:current
+    const {data:verified,error:verifyError}=await supabaseClient.functions.invoke("painel-login",{
+      body:{username:"julia",password:current}
     });
-    if(verifyError||!verified?.session){
+    if(verifyError||!verified?.access_token||!verified?.refresh_token){
       msg.textContent="A senha atual está incorreta.";
       return;
     }
+    const {error:verifySessionError}=await supabaseClient.auth.setSession({
+      access_token:verified.access_token,
+      refresh_token:verified.refresh_token
+    });
+    if(verifySessionError)throw verifySessionError;
 
     msg.textContent="Salvando a nova senha...";
     const {error:updateError}=await supabaseClient.auth.updateUser({password:next});
@@ -20290,6 +20324,7 @@ function applyAuthState(){
   if(!ok){loginUser.value="";loginPass.value=""}
 }
 async function doLogin(){
+  if(handleLoginMode())return;
   const user=(loginUser.value||"").trim().toUpperCase();
   const pass=loginPass.value||"";
 
@@ -20360,6 +20395,110 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closePasswordModal()
 taskModal.addEventListener("click",e=>{if(e.target===taskModal)closeTaskModal()});
 routineModal.addEventListener("click",e=>{if(e.target===routineModal)closeRoutineModal()});
 document.getElementById("systemModal")?.addEventListener("click",e=>{if(e.target.id==="systemModal")closeSystemModal()});
+/* ===== Esqueceu a senha / criar nova senha ===== */
+const loginBadge=document.querySelector(".login-panel.ofc-badge");
+const loginInfo=document.getElementById("loginInfo");
+let recoveryTokens=null;
+function setLoginMode(mode){
+  if(!loginBadge)return;
+  loginBadge.dataset.mode=mode;
+  authError.textContent="";
+  if(loginInfo)loginInfo.textContent="";
+  const label=authBtn.querySelector("span");
+  const title=loginBadge.querySelector("h1");
+  const sub=loginBadge.querySelector(".ofc-badge-id p");
+  if(mode==="forgot"){
+    label.textContent="Enviar link";
+    title.textContent="Esqueceu a senha?";
+    sub.textContent="Informe seu usuário. Vamos enviar um link para o e-mail cadastrado.";
+    setTimeout(()=>loginUser.focus(),50);
+  }else if(mode==="reset"){
+    label.textContent="Salvar nova senha";
+    title.textContent="Criar nova senha";
+    sub.textContent="Escolha uma senha com pelo menos 6 caracteres.";
+    setTimeout(()=>document.getElementById("resetPass1")?.focus(),50);
+  }else{
+    label.textContent="Entrar";
+    title.textContent="Bem-vinda de volta";
+    sub.textContent="Acesso restrito. Identifique-se para entrar.";
+  }
+}
+function handleLoginMode(){
+  const mode=loginBadge?.dataset.mode||"login";
+  if(mode==="forgot"){sendPasswordReset();return true;}
+  if(mode==="reset"){saveRecoveredPassword();return true;}
+  return false;
+}
+async function sendPasswordReset(){
+  const user=loginUser.value.trim();
+  if(!user){authError.textContent="Informe o usuário.";return;}
+  if(!supabaseClient){authError.textContent="Não foi possível conectar ao banco online.";return;}
+  authBtn.disabled=true;
+  authError.textContent="";
+  loginInfo.textContent="Enviando...";
+  try{
+    const {data,error}=await supabaseClient.functions.invoke("painel-login",{
+      body:{action:"reset",username:user,redirectTo:location.origin+location.pathname}
+    });
+    if(error||!data?.ok)throw error||new Error("Falha ao enviar.");
+    loginInfo.textContent="Pronto! Se o usuário estiver certo, o link chega em alguns instantes no e-mail cadastrado. Abra o e-mail e clique no link para criar a nova senha.";
+  }catch(err){
+    console.error("Falha ao pedir redefinição:",err);
+    loginInfo.textContent="";
+    authError.textContent="Não foi possível enviar o link agora. Tente de novo em alguns minutos.";
+  }finally{
+    authBtn.disabled=false;
+  }
+}
+async function saveRecoveredPassword(){
+  const p1=document.getElementById("resetPass1").value;
+  const p2=document.getElementById("resetPass2").value;
+  if(p1.length<6){authError.textContent="A senha precisa ter pelo menos 6 caracteres.";return;}
+  if(p1!==p2){authError.textContent="As duas senhas não são iguais.";return;}
+  if(!supabaseClient||!recoveryTokens){authError.textContent="Este link não é mais válido. Peça um novo em “Esqueceu a senha?”.";return;}
+  authBtn.disabled=true;
+  authError.textContent="";
+  loginInfo.textContent="Salvando...";
+  try{
+    const {error:sessionError}=await supabaseClient.auth.setSession(recoveryTokens);
+    if(sessionError)throw sessionError;
+    const {error}=await supabaseClient.auth.updateUser({password:p1});
+    if(error)throw error;
+    try{await supabaseClient.auth.signOut()}catch(e){}
+    recoveryTokens=null;
+    document.getElementById("resetPass1").value="";
+    document.getElementById("resetPass2").value="";
+    setLoginMode("login");
+    loginInfo.textContent="Nova senha salva! Agora é só entrar com ela.";
+  }catch(err){
+    console.error("Falha ao salvar a nova senha:",err);
+    loginInfo.textContent="";
+    authError.textContent="Não foi possível salvar. O link pode ter expirado: peça um novo em “Esqueceu a senha?”.";
+  }finally{
+    authBtn.disabled=false;
+  }
+}
+(function readRecoveryLink(){
+  const params=new URLSearchParams(location.hash.replace(/^#/,""));
+  if(!params.get("type")&&!params.get("error")&&!params.get("error_code"))return;
+  const clean=()=>history.replaceState(null,"",location.pathname+location.search);
+  if(params.get("type")==="recovery"&&params.get("access_token")&&params.get("refresh_token")){
+    recoveryTokens={access_token:params.get("access_token"),refresh_token:params.get("refresh_token")};
+    clean();
+    sessionStorage.removeItem(SESSION_KEY);
+    setLoginMode("reset");
+  }else if(params.get("error")||params.get("error_code")){
+    clean();
+    setLoginMode("forgot");
+    authError.textContent=params.get("error_code")==="otp_expired"
+      ?"Esse link expirou ou já foi usado. Peça um novo abaixo."
+      :"Não foi possível abrir o link. Peça um novo abaixo.";
+  }
+})();
+document.getElementById("forgotPassBtn")?.addEventListener("click",()=>setLoginMode("forgot"));
+document.getElementById("loginBackBtn")?.addEventListener("click",()=>setLoginMode("login"));
+["resetPass1","resetPass2"].forEach(id=>document.getElementById(id)?.addEventListener("keydown",e=>{if(e.key==="Enter")doLogin()}));
+
 authBtn.addEventListener("click",doLogin);
 
 loginUser.addEventListener("keydown",e=>{if(e.key==="Enter")doLogin()});
